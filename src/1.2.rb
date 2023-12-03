@@ -20,10 +20,7 @@ content.each_line do |line|
   map.each do |key, value|
     line.gsub!(/#{key}/, value)
   end
-
-  first_digit = line[/\d/]
-  last_digit = line[/\d(?=\D*$)/]
-  number = first_digit + last_digit
+  number = first_digit = line[/\d/] + last_digit = line[/\d(?=\D*$)/]
   total += number.to_i
 end
 
