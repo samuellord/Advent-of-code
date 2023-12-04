@@ -11,7 +11,7 @@ def is_adjacent?(array_2d, i, j)
   false
 end
 
-filename = '../inputs/test3.txt'
+filename = '../inputs/3.txt'
 content = IO.read(filename)
 total = 0
 
@@ -39,7 +39,11 @@ array_2d.each_with_index do |line, i|
       is_adjacent = false
     end
   end
+  #on est oblige de faire ca parce que si la dernier char est un chiffre, on on doit ajouter le nombre au total si adjacent. :(((((((
+  if !number.empty? && is_adjacent
+    total += number.to_i
+  end
+  number = ""
+  is_adjacent = false
 end
 puts total
-
-
