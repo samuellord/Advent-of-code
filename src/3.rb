@@ -11,7 +11,7 @@ def is_adjacent?(array_2d, i, j)
   false
 end
 
-filename = '../inputs/3.txt'
+filename = '../inputs/test3.txt'
 content = IO.read(filename)
 total = 0
 
@@ -21,9 +21,6 @@ content.each_line do |line|
   array_2d << line.strip.split('')
 end
 
-# test to manipulate array
-char = array_2d[0][5]
-puts char
 
 number = ""
 is_adjacent = false
@@ -35,11 +32,11 @@ array_2d.each_with_index do |line, i|
         is_adjacent = true
       end
     else
-      unless number.empty?
+      if !number.empty? && is_adjacent
         total += number.to_i
-        number = ""
-        is_adjacent = false
       end
+      number = ""
+      is_adjacent = false
     end
   end
 end
